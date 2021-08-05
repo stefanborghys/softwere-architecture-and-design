@@ -36,3 +36,21 @@ PlantUMl:
   - MandMap diagram
   - work breakdown structure diagram
   - entity relationship diagram 
+
+## Methodologies 
+
+### Architectural Decision Records
+
+> AD - Architectural Decision:  
+> software design choice that addresses a functional or non-functional requirement that is architecturally significant  
+ 
+> ASR - Architectural Significant Requirement:  
+> requirement that has a measurable effect on a software system’s architecture and quality
+
+> ADR - Architectural Decision Record:  
+> captures a single AD
+ 
+> Decision Log:  
+> collection of ADRs
+
+src: [adr.github.io](https://adr.github.io)
