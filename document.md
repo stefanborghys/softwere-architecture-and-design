@@ -5,14 +5,15 @@
 ### Text
 
 | Tool        | Description                                                          | Website                                                  |
-| ----------- | -------------------------------------------------------------------- | -------------------------------------------------------- |
+| :---------- | :------------------------------------------------------------------- | -------------------------------------------------------: |
 | Asciidoctor | Open Source toolchain to convert AsciiDoc to HTML, DocBook, PDF, ... | [github.com/asciidoctor](https://github.com/asciidoctor) |
 
 ### Diagrams 
 
-| Tool     | Description             | Website                              |
-| -------- | ----------------------- | ------------------------------------ |
-| PlantUML | Diagram generation tool | [plantuml.com](https://plantuml.com) |
+| Tool     | Description                                     | Website                                            |
+| :------- | :---------------------------------------------- | -------------------------------------------------: |
+| PlantUML | Diagram generation tool                         | [plantuml.com](https://plantuml.com)               |
+| Archi    | Open Source modelling toolkit models & sketches | [archimatetool.com](https://www.archimatetool.com) |
 
 PlantUMl:
 - UML diagrams
