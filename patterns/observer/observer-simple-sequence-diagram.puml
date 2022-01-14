@@ -1,0 +1,75 @@
+@startuml
+
+actor User as User
+participant TimerApp as TimerApp
+participant Timer as Timer
+participant TickCounter as TickCounter
+participant TimeVisualiser as TimeVisualiser
+participant TimerManager as TimerManager
+participant Thread as Thread
+
+User -> TimerApp: main
+activate TimerApp
+
+== Initialization ==
+
+create TimerManager
+TimerApp -> TimerManager: new
+activate TimerManager
+
+create Timer
+TimerApp -> Timer: new
+activate Timer
+
+TimerApp -> TimerManager: setTimer(timer)
+
+create TickCounter
+TimerApp -> TickCounter: new
+activate TickCounter
+
+TimerApp -> Timer: attach(tickCounter)
+
+create TimeVisualiser
+TimerApp -> TimeVisualiser: new(timerManager)
+activate TimeVisualiser
+
+TimerApp -> Timer: attach(timeVisualiser)
+
+== Start timer ==
+
+TimerApp -> Timer: start
+    loop while started = true
+        Timer -> Thread: sleep(1000)
+        Timer -> Timer: notifyUpdate
+            loop all attached observers
+                Timer -> TickCounter: update
+                note right
+                Increases number of ticks with every received update.
+
+                I.e. performs an action without any consultation of the subject.
+                This could uncover an observer 'knowing more' details about it's subject, which it shouldn't.
+                end note
+                Timer -> TimeVisualiser: update
+                    TimeVisualiser -> TimerManager: getTimer
+                    TimeVisualiser -> Timer: getDuration
+                    note right
+                    Visualises the passed time with every received update.
+
+                    I.e. pull-model: retrieves the subject afterhand to gather more information.
+                    end note
+            end
+    end 
+
+== Stop timer ==
+
+TimerApp -> Timer: stop
+TimerApp -> Timer: detach(tickCounter)
+TimerApp -> Timer: detach(timeVisualiser)
+
+deactivate TimeVisualiser
+deactivate TickCounter
+deactivate Timer
+deactivate TimerManager
+deactivate TimerApp
+
+@enduml

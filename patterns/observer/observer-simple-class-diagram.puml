@@ -1,0 +1,45 @@
+@startuml
+
+class TimerApp {
+  + {static} void main(String[] args)
+}
+
+class TimerManager {
+  - timer : Timer
+  + void setTimer(Timer timer)
+  + Optional<Timer> getTimer()
+}
+
+interface Observer {
+  void update()
+}
+class TickCounter {
+  - numberOfTicks : long
+}
+class TimeVisualiser {
+  - timerManager : TimerManager
+}
+
+Observer <|-- TickCounter
+Observer <|-- TimeVisualiser
+
+interface Subject {
+  void attach(Observer observer)
+  void detach(Observer observer)
+  void notifyUpdate()
+}
+
+class Timer {
+  - observers : Set<Observer>
+  - started : boolean
+  - numberOfSeconds : long
+  
+  + void start()
+  + void stop()
+  + boolean isStarted()
+  + Duration getDuration()
+}
+
+Subject <|-- Timer
+
+@enduml
