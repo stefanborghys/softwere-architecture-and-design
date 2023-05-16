@@ -8,6 +8,8 @@
 | :------------ | :------------------------------------------------------------------- | -----------------------------: |
 | Asciidoctor   | Open Source toolchain to convert AsciiDoc to HTML, DocBook, PDF, ... | https://github.com/asciidoctor |
 | Read the Docs | Automated building, versioning, & hosting of docs | https://readthedocs.org |
+| Gitbook       | Document API references, code guidelines, product overviews, wikis, ... | https://www.gitbook.com |
+
 
 ### Diagrams 
 
